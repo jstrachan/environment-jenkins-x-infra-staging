@@ -4,3 +4,4 @@ secrets.yaml
 mysecrets.yaml
 charts/
 requirements.lock
+.DS_Store

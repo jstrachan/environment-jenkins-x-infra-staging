@@ -7,6 +7,6 @@ metadata:
   creationTimestamp: null
   labels:
     jenkins.io/app-name: jx-app-sso
-    jenkins.io/app-version: 0.0.10
+    jenkins.io/app-version: 0.0.11
   name: jx-app-sso
 spec: {}
