@@ -6,12 +6,13 @@ metadata:
     jenkins.io/chart-repository: https://chartmuseum.jx.charts-demo.cloudbees.com
   creationTimestamp: null
   labels:
-    chart: jx-app-ui-0.0.696
+    chart: jx-app-ui-0.0.703
     jenkins.io/app-name: jx-app-ui
-    jenkins.io/app-version: 0.0.696
+    jenkins.io/app-version: 0.0.703
   name: jx-app-ui-jx-app-ui
 spec:
   schemaPreprocessor:
+    name: schemaPreprocessor
     args:
     - -c
     - /usr/bin/jx step values schema template --set domain=`echo $DOMAIN`

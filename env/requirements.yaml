@@ -28,7 +28,7 @@ dependencies:
   version: 0.0.11
 - name: jx-app-ui
   repository: https://chartmuseum.jx.charts-demo.cloudbees.com
-  version: 0.0.696
+  version: 0.0.703
 - name: jx-app-replicator
   repository: http://chartmuseum.jenkins-x.io
   version: 1.0.14
