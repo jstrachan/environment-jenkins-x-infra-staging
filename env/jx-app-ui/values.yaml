@@ -1,4 +1,7 @@
 ui:
+  service:
+    serviceAnnotations:
+      fabric8.io/exposeUrl: https://dashboard.staging.jrawlings.co.uk
   sso:
     certIssuerName: letsencrypt-prod
     domain: staging.jrawlings.co.uk
