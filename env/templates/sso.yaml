@@ -1,0 +1,27 @@
+apiVersion: jenkins.io/v1
+kind: SSO
+metadata:
+  name: sso-jenkins-x-ui
+spec:
+  skipExposeService: true
+  certIssuerName: letsencrypt-prod
+  cookieSpec:
+    expire: 168h
+    httpOnly: true
+    name: sso-jxui
+    refresh: 60m
+    secure: true
+  domain: staging.jrawlings.co.uk
+  forwardToken: true
+  oidcIssuerUrl: https://dex.staging.jrawlings.co.uk
+  proxyImage: quay.io/pusher/oauth2_proxy
+  proxyImageTag: v3.2.0
+  urlTemplate: "dashboard.{{.Domain}}"
+  proxyResources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 80m
+      memory: 128Mi
+  upstreamService: jenkins-x-ui
