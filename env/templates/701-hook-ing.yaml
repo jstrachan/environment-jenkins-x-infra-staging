@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  labels:
+    provider: fabric8
+  name: hook
+spec:
+  rules:
+  - host: hook.staging.jrawlings.co.uk
+    http:
+      paths:
+      - backend:
+          serviceName: hook
+          servicePort: 80
+  tls:
+  - hosts:
+    - hook.staging.jrawlings.co.uk
+    secretName: tls-infra-jrawlings-co-uk

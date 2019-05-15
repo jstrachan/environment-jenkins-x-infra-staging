@@ -1,0 +1,5 @@
+ui:
+  sso:
+    certIssuerName: letsencrypt-prod
+    domain: staging.jrawlings.co.uk
+    oidcIssuerUrl: https://dex.staging.jrawlings.co.uk

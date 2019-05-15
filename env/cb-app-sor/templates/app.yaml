@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    jenkins.io/chart-description: A Helm chart for the Jenkins X Source of Records
+      App
+    jenkins.io/chart-repository: https://chartmuseum.jx.charts-demo.cloudbees.com
+  creationTimestamp: null
+  labels:
+    app: cb-app-sor
+    chart: cb-app-sor-0.0.2
+    draft: draft-app
+    heritage: Tiller
+    jenkins.io/app-name: cb-app-sor
+    jenkins.io/app-version: 0.0.2
+    release: cb-app-sor
+  name: cb-app-sor-cb-app-sor
+spec: {}
