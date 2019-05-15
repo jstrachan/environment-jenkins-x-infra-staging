@@ -1,6 +1,6 @@
 sso-operator:
   dex:
-    grpcHost: dex.jx
+    grpcHost: dex.mole-staging
 
 dex:
   domain: dex.staging.jrawlings.co.uk
