@@ -1,3 +1,0 @@
-nginx-ingress:
-  rbac.create: true
-  controller.extraArgs.publish-service: "kube-system/jxing-nginx-ingress-controller"

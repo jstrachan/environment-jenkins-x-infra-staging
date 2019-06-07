@@ -8,33 +8,36 @@ pipelineConfig:
         stages:
           - name: release
             steps:
-              - name: kube-system
-                dir: /workspace/source/namespaces/kube-system
-                command: jx
-                args: ['step','helm','apply']
-                env:
-                  - name: KUBERNETES_NAMESPACE
-                    value: kube-system
               - name: cert-manager-crds
-                dir: /workspace/source/namespaces/cert-manager
+                dir: /workspace/source
                 command: kubectl
-                args: ['apply','--wait', '--validate=true', '-f','https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml']
+                args: ['apply', '--wait', '--validate=true', '-f', 'https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml']
                 env:
-                  - name: KUBERNETES_NAMESPACE
+                  - name: DEPLOY_NAMESPACE
                     value: cert-manager
-              - name: cert-manager
-                dir: /workspace/source/namespaces/cert-manager
+              - name: jx-crds
                 command: jx
-                args: ['step','helm','apply']
+                args: ['upgrade','crd']
+              - name: kube-system
+                dir: /workspace/source/systems/jxing
+                command: jx
+                args: ['step','helm','apply', '--remote']
                 env:
-                  - name: KUBERNETES_NAMESPACE
+                  - name: DEPLOY_NAMESPACE
+                    value: kube-system
+              - name: cert-manager
+                dir: /workspace/source/systems/cm
+                command: jx
+                args: ['step','helm','apply', '--remote']
+                env:
+                  - name: DEPLOY_NAMESPACE
                     value: cert-manager
               - name: helm-build
                 dir: /workspace/source/env
                 command: jx
-                args: ['step','helm','apply']
+                args: ['step','helm','apply', '--remote']
                 env:
-                  - name: KUBERNETES_NAMESPACE
+                  - name: DEPLOY_NAMESPACE
                     value: jx
     pullRequest:
       pipeline:
