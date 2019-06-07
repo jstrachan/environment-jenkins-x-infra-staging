@@ -1,0 +1,5 @@
+certmanager:
+  rbac.create: true
+  webhook.enabled: false,
+  ingressShim.defaultIssuerName: letsencrypt-staging
+  ingressShim.defaultIssuerKind: Issuer

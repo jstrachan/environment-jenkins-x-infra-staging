@@ -8,11 +8,34 @@ pipelineConfig:
         stages:
           - name: release
             steps:
-              - name: helm-build
-                image: docker.io/rawlingsj80/builder-go:wip71
+              - name: kube-system
+                dir: /workspace/source/namespaces/kube-system
                 command: jx
-                dir: /workspace/source/env
                 args: ['step','helm','apply']
+                env:
+                  - name: KUBERNETES_NAMESPACE
+                    value: kube-system
+              - name: cert-manager-crds
+                dir: /workspace/source/namespaces/cert-manager
+                command: kubectl
+                args: ['apply','--wait', '--validate=true', '-f','https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml']
+                env:
+                  - name: KUBERNETES_NAMESPACE
+                    value: cert-manager
+              - name: cert-manager
+                dir: /workspace/source/namespaces/cert-manager
+                command: jx
+                args: ['step','helm','apply']
+                env:
+                  - name: KUBERNETES_NAMESPACE
+                    value: cert-manager
+              - name: helm-build
+                dir: /workspace/source/env
+                command: jx
+                args: ['step','helm','apply']
+                env:
+                  - name: KUBERNETES_NAMESPACE
+                    value: jx
     pullRequest:
       pipeline:
         agent:
@@ -21,8 +44,7 @@ pipelineConfig:
           - name: release
             steps:
               - name: helm-build
-                image: docker.io/rawlingsj80/builder-go:wip70
-                command: make
                 dir: /workspace/source/env
+                command: make
                 args: ['build']
 
