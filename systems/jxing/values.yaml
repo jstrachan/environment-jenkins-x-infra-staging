@@ -7,4 +7,5 @@ nginx-ingress:
   defaultBackend:
     service:
       omitClusterIP: true
-  rbac.create: true
+  rbac:
+    create: true
