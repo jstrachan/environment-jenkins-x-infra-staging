@@ -5,4 +5,4 @@ cert-manager:
   rbac:
     create: true
   webhook:
-    enabled: false,
+    enabled: false
