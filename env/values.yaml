@@ -82,8 +82,8 @@ datadog:
     logsEnabled: "true"
     logsConfigContainerCollectAll: "true"
 
-featureFlagAPIKey: vault:gitOps/jenkins-x/environment-tekton-mole-dev/feature-flag-api-key:token-passthrough
-npmToken: vault:gitOps/jenkins-x/environment-tekton-mole-dev/npm-token:token-passthrough
+#featureFlagAPIKey: vault:gitOps/jenkins-x/environment-tekton-mole-dev/feature-flag-api-key:token-passthrough
+#npmToken: vault:gitOps/jenkins-x/environment-tekton-mole-dev/npm-token:token-passthrough
 
 jx-app-prometheus:
   nodeExporter:
