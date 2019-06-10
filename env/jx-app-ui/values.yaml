@@ -1,9 +1,0 @@
-jxui:
-  service:
-    serviceAnnotations:
-      fabric8.io/exposeUrl: https://dashboard.staging.jrawlings.co.uk
-      fabric8.io/expose: "false"
-  sso:
-    certIssuerName: letsencrypt-prod
-    domain: staging.jrawlings.co.uk
-    oidcIssuerUrl: https://dex.staging.jrawlings.co.uk

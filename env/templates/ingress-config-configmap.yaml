@@ -1,11 +1,11 @@
 apiVersion: v1
 data:
-  domain: staging.jrawlings.co.uk
+  domain: 35.241.161.69.nip.io
   email: ""
   exposer: Ingress
   issuer: ""
   tls: "false"
-  urltemplate: "{{.Service}}.{{.Domain}}"
+  #urltemplate: "{{.Service}}.{{.Domain}}"
 kind: ConfigMap
 metadata:
   creationTimestamp: null

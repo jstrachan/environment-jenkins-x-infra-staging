@@ -25,9 +25,7 @@ data:
   kubeProvider: gke
   projectID: jenkins-x-infra
   region: ""
-  secretsLocation: vault
-  server: https://35.241.253.99
-  systemVaultName: jx-vault-tekton-mole
+  server: https://35.241.161.69
   zone: europe-west1-c
 kind: ConfigMap
 metadata:
